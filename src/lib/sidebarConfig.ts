@@ -1,6 +1,31 @@
 export const sidebarConfig = {
   javascript: [
     {
+      group: "Fundamentals",
+      items: [
+        { title: "What is JavaScript?", href: "/javascript/what-is-js" },
+        { title: "Variables & Data Types", href: "/javascript/variables" },
+        { title: "Memory & Data Storage", href: "/javascript/memory" },
+        { title: "Primitive vs Reference", href: "/javascript/primitive-vs-reference" },
+        { title: "ES5 vs ES6+", href: "/javascript/es5-vs-es6" },
+      ]
+    },
+    {
+      group: "Advanced Basics",
+      items: [
+        { title: "Functions Deep Dive", href: "/javascript/functions-deep" },
+        { title: "Generator Functions", href: "/javascript/generators" },
+        { title: "Class vs Function", href: "/javascript/class-vs-function" },
+      ],
+    },
+    {
+      group: "Core Logic",
+      items: [
+        { title: "Operators & Conditions", href: "/javascript/operators" },
+        { title: "Loops & Iteration", href: "/javascript/loops" }
+      ]
+    },
+    {
       group: "Execution",
       items: [
         { title: "Execution Context", href: "/javascript/execution-context" },
