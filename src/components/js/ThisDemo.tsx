@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function ThisDemo() {
+export default function ThisDemo(this: void) {
   const [result, setResult] = useState<string>("");
 
   const examples = {
@@ -21,7 +21,7 @@ export default function ThisDemo() {
     },
 
     regular: () => {
-      function test(this: any) {
+      function test(this: void) {
         return this;
       }
       return String(test());
