@@ -64,7 +64,7 @@ export default function Navbar() {
 
       <div
         className={clsx(
-          "pointer-events-none absolute inset-x-0 top-full md:hidden",
+          "pointer-events-none absolute inset-x-0 top-full z-50 md:hidden",
           open && "pointer-events-auto"
         )}
       >
@@ -72,14 +72,14 @@ export default function Navbar() {
           type="button"
           aria-label="Close navigation overlay"
           className={clsx(
-            "fixed inset-0 top-[73px] bg-black/20 transition-opacity duration-200",
+            "fixed inset-0 top-[73px] z-40 bg-black/20 transition-opacity duration-200",
             open ? "opacity-100" : "pointer-events-none opacity-0"
           )}
           onClick={() => setOpen(false)}
         />
         <div
           className={clsx(
-            "mx-4 mt-3 overflow-hidden rounded-3xl border border-black/8 bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.14)] transition-all duration-200",
+            "relative z-50 mx-4 mt-3 overflow-hidden rounded-3xl border border-black/8 bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.14)] transition-all duration-200",
             open
               ? "translate-y-0 opacity-100"
               : "pointer-events-none -translate-y-3 opacity-0"

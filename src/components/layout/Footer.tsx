@@ -18,7 +18,7 @@ export default function Footer() {
     const pathname = usePathname();
 
   return (
-    <footer className="mt-20 border-t border-black/5 bg-neutral-50 px-6 py-10">
+    <footer className="border-t border-black/5 bg-neutral-50 px-6 py-10">
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.4fr_1fr_auto] md:items-center">
         <div className="space-y-3">
           <p className="text-xs font-semibold tracking-[0.24em] text-black/40 uppercase">
