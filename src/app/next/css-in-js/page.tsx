@@ -18,14 +18,14 @@ export default function Page() {
   return (
     <div className="banner">
       Welcome to the site!
-      <style jsx>{`
+      <style jsx>{\`
         .banner {
           padding: 20px;
           background: #0369a1;
           color: white;
           border-radius: 12px;
         }
-      `}</style>
+      \`}</style>
     </div>
   );
 }`}</pre>

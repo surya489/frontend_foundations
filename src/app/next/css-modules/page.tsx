@@ -59,10 +59,9 @@ import styles from './card.module.css';
 export default function Card({ primary }) {
   return (
     <div className={
-      primary ? \
-        \\`
-          \\${styles.card} \\${styles.cardPrimary}
-        \\` : styles.card
+      primary ? {\`
+        \${styles.card} \${styles.cardPrimary}
+      \`} : styles.card
     }>
       Card content
     </div>

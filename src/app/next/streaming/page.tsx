@@ -150,7 +150,7 @@ function ProductCard({ product }: { product: Product }) {
       <h3 className="font-semibold">{product.name}</h3>
       <p className="text-gray-600">{product.description}</p>
       <img src={product.image} alt={product.name} />
-      <p className="font-bold">${product.price}</p>
+      <p className="font-bold">{product.price}</p>
     </div>
   );
 }`}</pre>

@@ -118,7 +118,7 @@ export default function PhotoModal({
   return (
     <div className="photo-modal">
       <h2>Photo {params.id}</h2>
-      <img src={`/photo-${params.id}.jpg`} />
+      <img src={"/photo-{params.id}.jpg"} />
       <Link href="/photos">Close</Link>
     </div>
   );
@@ -171,22 +171,23 @@ export default function PhotoModal({
           <div className="bg-white p-3 rounded font-mono text-sm">
             <pre>{`app/photos/[id]/page.tsx:
 
-// This handles direct navigation to /photos/[id]
-// The (.)[id] route handles interception from /photos
+              // This handles direct navigation to /photos/[id]
+              // The (.)[id] route handles interception from /photos
 
-export default function PhotoPage({
-  params
-}: {
-  params: { id: string }
-}) {
-  return (
-    <div>
-      <h1>Photo {params.id}</h1>
-      <img src={`/photo-${params.id}.jpg`} />
-      <Link href="/photos">← Back to Gallery</Link>
-    </div>
-  );
-}`}</pre>
+              export default function PhotoPage({
+                params
+              }: {
+                params: { id: string }
+              }) {
+                return (
+                  <div>
+                    <h1>Photo {params.id}</h1>
+                    <img src={"/photo-{params.id}.jpg"} />
+                    <Link href="/photos">← Back to Gallery</Link>
+                  </div>
+                );
+              }`}
+            </pre>
           </div>
         </div>
       </section>
