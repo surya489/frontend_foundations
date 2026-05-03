@@ -23,7 +23,7 @@ export default function ExecutionContextPage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           JavaScript execution happens in two phases: memory creation and execution.
           Variables are initialized as undefined, and functions are fully stored before execution begins.

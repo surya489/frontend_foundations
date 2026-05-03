@@ -39,7 +39,7 @@ export default function ThisPage() {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           The value of "this" in JavaScript depends on how a function is called.
           In object methods, it refers to the object. In regular functions,

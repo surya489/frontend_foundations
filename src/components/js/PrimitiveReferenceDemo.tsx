@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function PrimitiveReferenceDemo() {
   const [result, setResult] = useState("");
+  const [active, setActive] = useState(""); // 👈 track active button
 
   function primitiveExample() {
     let a = 10;
@@ -12,6 +13,7 @@ export default function PrimitiveReferenceDemo() {
     b = 20;
 
     setResult(`a = ${a}, b = ${b}`);
+    setActive("primitive");
   }
 
   function referenceExample() {
@@ -21,6 +23,7 @@ export default function PrimitiveReferenceDemo() {
     obj2.value = 20;
 
     setResult(`obj1.value = ${obj1.value}, obj2.value = ${obj2.value}`);
+    setActive("reference");
   }
 
   function fixExample() {
@@ -30,6 +33,7 @@ export default function PrimitiveReferenceDemo() {
     obj2.value = 20;
 
     setResult(`obj1.value = ${obj1.value}, obj2.value = ${obj2.value}`);
+    setActive("fix");
   }
 
   return (
@@ -37,15 +41,30 @@ export default function PrimitiveReferenceDemo() {
       <h3 className="font-semibold mb-3">Try Examples</h3>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        <button onClick={primitiveExample} className="px-3 py-1 border rounded">
+        <button
+          onClick={primitiveExample}
+          className={`px-3 py-1 border rounded cursor-pointer ${
+            active === "primitive" ? "bg-black text-white" : ""
+          }`}
+        >
           Primitive
         </button>
 
-        <button onClick={referenceExample} className="px-3 py-1 border rounded">
+        <button
+          onClick={referenceExample}
+          className={`px-3 py-1 border rounded cursor-pointer ${
+            active === "reference" ? "bg-black text-white" : ""
+          }`}
+        >
           Reference
         </button>
 
-        <button onClick={fixExample} className="px-3 py-1 border rounded">
+        <button
+          onClick={fixExample}
+          className={`px-3 py-1 border rounded cursor-pointer ${
+            active === "fix" ? "bg-black text-white" : ""
+          }`}
+        >
           Fix (Copy)
         </button>
       </div>

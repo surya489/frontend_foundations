@@ -59,7 +59,7 @@ class Person {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Classes in JavaScript are syntactic sugar over constructor functions and
           prototypes. Both achieve the same result, but classes provide cleaner and

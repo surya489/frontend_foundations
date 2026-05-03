@@ -43,7 +43,7 @@ export default function HOFPage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           A Higher Order Function is a function that takes another function as
           an argument or returns a function. It enables abstraction and code reuse.

@@ -21,4 +21,30 @@ body {
 a,
 button {
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+button,
+button[type="button"],
+button[type="submit"],
+button[type="reset"] {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover,
+button:focus,
+button:active {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

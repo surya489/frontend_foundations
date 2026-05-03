@@ -39,7 +39,7 @@ export default function AsyncAwaitPage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Async/Await is built on top of Promises and provides a cleaner syntax.
           The await keyword pauses execution within an async function until the

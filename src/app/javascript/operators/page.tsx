@@ -62,7 +62,7 @@ isLoggedIn && showDashboard();`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Logical operators in JavaScript do not always return boolean values.
           OR returns the first truthy value, AND returns the first falsy or last truthy.

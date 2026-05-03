@@ -49,7 +49,7 @@ Timeout`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           The event loop continuously checks if the call stack is empty.
           When empty, it first processes microtasks (Promises), then executes

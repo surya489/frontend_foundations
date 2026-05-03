@@ -28,7 +28,7 @@ export default function CallStackPage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 mt-2 text-sm">
           The call stack is a LIFO structure that manages function execution in JavaScript.
           Each function call is pushed onto the stack, and once execution completes,

@@ -61,7 +61,7 @@ gen.next().value; // 2`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Generator functions allow pausing and resuming execution using yield.
           They return an iterator object, and each call to next() continues from

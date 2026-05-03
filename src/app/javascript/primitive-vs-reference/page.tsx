@@ -40,7 +40,7 @@ let obj2 = { ...obj1 };`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Primitive values are copied by value, meaning changes do not affect the original.
           Reference types share the same memory location, so changes affect both variables.

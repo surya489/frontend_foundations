@@ -58,7 +58,7 @@ function throttle(fn, delay) {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Debounce delays execution until a pause in activity, while throttle ensures
           execution happens at regular intervals. Debounce is useful for search inputs,

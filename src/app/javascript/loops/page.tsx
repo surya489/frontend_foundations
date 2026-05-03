@@ -55,7 +55,7 @@ continue → skips current iteration`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Loops allow repeated execution of code. The for loop is the most commonly used,
           while forEach is used for arrays. break stops execution, and continue skips iterations.

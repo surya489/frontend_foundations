@@ -57,7 +57,7 @@ export default function ArrowVsNormalDemo(this: void) {
         </button>
       </div>
 
-      <div className="bg-gray-100 p-3 rounded text-sm min-h-[40px]">
+      <div className={`bg-gray-100 p-3 rounded text-sm min-h-[40px]`}>
         {result || "Click a case to see result"}
       </div>
     </div>

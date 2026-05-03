@@ -56,7 +56,7 @@ const c = 30;`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Variables in JavaScript can be declared using var, let, and const.
           let and const are block-scoped, while var is function-scoped.

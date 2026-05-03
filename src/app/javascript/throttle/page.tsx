@@ -52,7 +52,7 @@ export default function ThrottlePage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Throttle limits function execution to once per specified interval.
           It is useful for performance optimization in events like scroll and resize.

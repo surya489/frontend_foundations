@@ -40,7 +40,7 @@ export default function ClosuresPage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           A closure is formed when a function retains access to its lexical scope
           even after the outer function has completed execution. This allows

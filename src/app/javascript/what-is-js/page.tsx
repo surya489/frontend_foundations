@@ -47,7 +47,7 @@ export default function WhatIsJSPage() {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           JavaScript is a single-threaded, interpreted language that runs inside
           a JavaScript engine. It supports asynchronous programming using
