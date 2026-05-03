@@ -5,15 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import clsx from "clsx";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "JavaScript", href: "/javascript" },
-  { name: "React", href: "/react" },
-  { name: "Next.js", href: "/next" },
-  { name: "TypeScript", href: "/typescript" },
-  { name: "Interview", href: "/interview" }
-];
+import { navItems } from "@/lib/navbarConfig";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -43,7 +35,7 @@ export default function Navbar() {
               href={item.href}
               className={clsx(
                 "rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
-                pathname === item.href
+                pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
                   ? "bg-white text-black shadow-sm"
                   : "text-black/55 hover:text-black"
               )}
@@ -57,7 +49,7 @@ export default function Navbar() {
           type="button"
           aria-expanded={open}
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-          className="flex h-11 w-11 items-center justify-center rounded-2xl border border-black/10 bg-white text-black shadow-sm transition hover:bg-black hover:text-white md:hidden"
+          className="flex h-auto w-auto items-center justify-center rounded-2xl border border-black/10 bg-white text-black shadow-sm transition hover:bg-black hover:text-white md:hidden !p-2"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -70,12 +62,11 @@ export default function Navbar() {
           open && "pointer-events-auto"
         )}
       >
-        <button
-          type="button"
-          aria-label="Close navigation overlay"
+        <div
+          aria-hidden={!open}
           className={clsx(
-            "fixed inset-0 top-[73px] z-40 bg-black/20 transition-opacity duration-200",
-            open ? "opacity-100" : "pointer-events-none opacity-0"
+            "fixed inset-0 z-40 bg-black/20 transition-opacity duration-200",
+            open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           )}
           onClick={() => setOpen(false)}
         />
@@ -83,7 +74,7 @@ export default function Navbar() {
           className={clsx(
             "relative z-50 mx-4 mt-3 overflow-hidden rounded-3xl border border-black/8 bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.14)] transition-all duration-200",
             open
-              ? "translate-y-0 opacity-100"
+              ? "translate-y-0 opacity-100 pointer-events-auto"
               : "pointer-events-none -translate-y-3 opacity-0"
           )}
         >
@@ -100,7 +91,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={clsx(
                   "rounded-2xl px-4 py-3 text-sm font-medium transition-colors",
-                  pathname === item.href
+                  pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
                     ? "bg-black text-white"
                     : "text-black/70 hover:bg-black/[0.04] hover:text-black"
                 )}

@@ -5,13 +5,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "JavaScript", href: "/javascript" },
-  { name: "React", href: "/react" },
-  { name: "Next.js", href: "/next" },
-];
+import { navItems } from "@/lib/navbarConfig";
 
 export default function Footer() {
 
@@ -43,7 +37,7 @@ export default function Footer() {
                     href={item.href}
                     className={clsx(
                     "rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
-                    pathname === item.href
+                    pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
                         ? "bg-white text-black"
                         : "text-black/55 hover:text-black"
                     )}
