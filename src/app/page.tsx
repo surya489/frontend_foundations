@@ -24,12 +24,12 @@ const HomePage = () => {
             Explore Concepts
           </Link>
 
-          <Link
+          {/* <Link
             href="/improvements"
             className="rounded-lg border px-4 py-2"
           >
             What I Improved
-          </Link>
+          </Link> */}
         </div>
       </section>
 
