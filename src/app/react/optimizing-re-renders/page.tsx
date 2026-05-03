@@ -1,7 +1,14 @@
+"use client";
+
 import React, { useState, useMemo, useCallback } from 'react';
 
+interface ExpensiveComponentProps {
+  count: number;
+  onIncrement: () => void;
+}
+
 // Demo component to show optimization
-function ExpensiveComponent({ count, onIncrement }) {
+function ExpensiveComponent({ count, onIncrement }: ExpensiveComponentProps) {
   console.log('ExpensiveComponent rendered');
 
   // Simulate expensive computation

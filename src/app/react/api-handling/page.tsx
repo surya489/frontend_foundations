@@ -2,9 +2,19 @@
 
 import { useState, useEffect } from 'react';
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+interface ApiResponse {
+  users: User[];
+}
+
 // Custom hook for API calls
-function useApi(url) {
-  const [data, setData] = useState(null);
+function useApi(url: string) {
+  const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -31,7 +41,7 @@ function useApi(url) {
         if (isMounted) {
           setData(mockData);
         }
-      } catch (err) {
+      } catch (err: any) {
         if (isMounted) {
           setError(err.message || 'An error occurred');
         }
@@ -56,7 +66,7 @@ function useApi(url) {
 function ApiDemo() {
   const [method, setMethod] = useState('GET');
   const [endpoint, setEndpoint] = useState('/api/users');
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   const makeRequest = async () => {
@@ -84,7 +94,7 @@ function ApiDemo() {
       }
 
       setResponse(mockResponse);
-    } catch (error) {
+    } catch (error: any) {
       setResponse({ error: error.message });
     } finally {
       setLoading(false);

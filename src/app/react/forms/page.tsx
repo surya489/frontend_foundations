@@ -1,4 +1,4 @@
-import FormsDemo from '@/components/react/FormsDemo';
+import FormsDemo from "@/components/react/FormsDemo";
 
 export default function FormsPage() {
   return (

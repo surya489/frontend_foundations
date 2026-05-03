@@ -2,9 +2,14 @@
 
 import React, { Suspense, useState, lazy } from 'react';
 
+interface DataState {
+  message: string;
+  timestamp: string;
+}
+
 // Lazy load a component
 const LazyComponent = lazy(() => {
-  return new Promise(resolve => {
+  return new Promise<{ default: React.ComponentType }>(resolve => {
     setTimeout(() => {
       resolve({
         default: () => (
@@ -20,7 +25,7 @@ const LazyComponent = lazy(() => {
 
 // Component that simulates data fetching
 function DataComponent() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<DataState | null>(null);
   const [loading, setLoading] = useState(false);
 
   const fetchData = () => {
@@ -33,7 +38,7 @@ function DataComponent() {
   };
 
   if (loading) {
-    throw new Promise(resolve => {
+    throw new Promise<void>(resolve => {
       setTimeout(() => {
         setData({ message: 'Data loaded successfully!', timestamp: new Date().toLocaleTimeString() });
         resolve();
@@ -71,17 +76,17 @@ function LoadingFallback() {
 }
 
 // Error boundary for Suspense
-class SuspenseErrorBoundary extends React.Component {
-  constructor(props) {
+class SuspenseErrorBoundary extends React.Component<React.PropsWithChildren<{}>, { hasError: boolean }> {
+  constructor(props: React.PropsWithChildren<{}>) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: Error) {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.log('Suspense error:', error, errorInfo);
   }
 

@@ -1,4 +1,4 @@
-import EventDemo from '@/components/react/EventDemo';
+import EventDemo from "@/components/react/EventDemo";
 
 export default function EventsPage() {
   return (
@@ -33,7 +33,7 @@ export default function EventsPage() {
       <section>
         <h2 className="text-xl font-semibold">Event Handler Function</h2>
         <pre className="bg-gray-100 p-3 rounded text-sm">
-{`function handleClick(event) {
+{`function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
   // event is a SyntheticEvent
   console.log('Button clicked!');
 }

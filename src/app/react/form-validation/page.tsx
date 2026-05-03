@@ -1,39 +1,59 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent, FocusEvent, FormEvent } from 'react';
+
+interface FormValues {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  age: string;
+}
+
+type FormErrors = Partial<Record<keyof FormValues, string>>;
+type FormTouched = Partial<Record<keyof FormValues, boolean>>;
+
+type ValidationFunction = (values: FormValues) => FormErrors;
+
+type SubmitHandler = (values: FormValues) => void;
 
 // Custom hook for form validation
-function useFormValidation(initialValues, validate) {
-  const [values, setValues] = useState(initialValues);
-  const [errors, setErrors] = useState({});
-  const [touched, setTouched] = useState({});
+function useFormValidation(initialValues: FormValues, validate: ValidationFunction) {
+  const [values, setValues] = useState<FormValues>(initialValues);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<FormTouched>({});
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setValues(prev => ({ ...prev, [name]: value }));
 
     // Clear error when user starts typing
-    if (errors[name]) {
+    if (errors[name as keyof FormValues]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setTouched(prev => ({ ...prev, [name]: true }));
 
     // Validate on blur
     const validationErrors = validate(values);
-    if (validationErrors[name]) {
-      setErrors(prev => ({ ...prev, [name]: validationErrors[name] }));
+    if (validationErrors[name as keyof FormValues]) {
+      setErrors(prev => ({ ...prev, [name]: validationErrors[name as keyof FormValues] }));
     }
   };
 
-  const handleSubmit = (e, onSubmit) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>, onSubmit: SubmitHandler) => {
     e.preventDefault();
     const validationErrors = validate(values);
     setErrors(validationErrors);
-    setTouched(Object.keys(values).reduce((acc, key) => ({ ...acc, [key]: true }), {}));
+    setTouched(
+      Object.keys(values).reduce((acc, key) => ({
+        ...acc,
+        [key]: true
+      }), {}) as FormTouched
+    );
 
     if (Object.keys(validationErrors).length === 0) {
       onSubmit(values);
@@ -51,8 +71,8 @@ function useFormValidation(initialValues, validate) {
 }
 
 // Validation function
-function validateForm(values) {
-  const errors = {};
+function validateForm(values: FormValues): FormErrors {
+  const errors: FormErrors = {};
 
   if (!values.name.trim()) {
     errors.name = 'Name is required';
@@ -76,7 +96,10 @@ function validateForm(values) {
     errors.confirmPassword = 'Passwords do not match';
   }
 
-  if (!values.age || values.age < 18) {
+  const ageValue = Number(values.age);
+  if (!values.age.trim()) {
+    errors.age = 'Age is required';
+  } else if (Number.isNaN(ageValue) || ageValue < 18) {
     errors.age = 'You must be at least 18 years old';
   }
 
@@ -84,7 +107,7 @@ function validateForm(values) {
 }
 
 export default function FormValidationPage() {
-  const initialValues = {
+  const initialValues: FormValues = {
     name: '',
     email: '',
     password: '',
@@ -101,7 +124,7 @@ export default function FormValidationPage() {
     handleSubmit
   } = useFormValidation(initialValues, validateForm);
 
-  const onSubmit = (formData) => {
+  const onSubmit = (formData: FormValues) => {
     alert(`Form submitted successfully!\n${JSON.stringify(formData, null, 2)}`);
   };
 

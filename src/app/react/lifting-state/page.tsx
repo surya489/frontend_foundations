@@ -1,10 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
+
+type Scale = 'c' | 'f';
+
+interface TemperatureInputProps {
+  temperature: string;
+  onTemperatureChange: (temperature: string) => void;
+  scale: Scale;
+}
 
 // Child component that needs to communicate with parent
-function TemperatureInput({ temperature, onTemperatureChange, scale }) {
-  const scaleNames = {
+function TemperatureInput({ temperature, onTemperatureChange, scale }: TemperatureInputProps) {
+  const scaleNames: Record<Scale, string> = {
     c: 'Celsius',
     f: 'Fahrenheit'
   };
@@ -17,7 +25,7 @@ function TemperatureInput({ temperature, onTemperatureChange, scale }) {
       <input
         type="number"
         value={temperature}
-        onChange={(e) => onTemperatureChange(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => onTemperatureChange(e.target.value)}
         className="border p-2 rounded"
       />
     </div>
@@ -27,21 +35,21 @@ function TemperatureInput({ temperature, onTemperatureChange, scale }) {
 // Parent component that manages shared state
 function Calculator() {
   const [temperature, setTemperature] = useState('');
-  const [scale, setScale] = useState('c');
+  const [scale, setScale] = useState<Scale>('c');
 
-  const handleCelsiusChange = (temperature) => {
+  const handleCelsiusChange = (temperature: string) => {
     setTemperature(temperature);
     setScale('c');
   };
 
-  const handleFahrenheitChange = (temperature) => {
+  const handleFahrenheitChange = (temperature: string) => {
     setTemperature(temperature);
     setScale('f');
   };
 
   // Conversion functions
-  const toCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
-  const toFahrenheit = (celsius) => (celsius * 9) / 5 + 32;
+  const toCelsius = (fahrenheit: number) => ((fahrenheit - 32) * 5) / 9;
+  const toFahrenheit = (celsius: number) => (celsius * 9) / 5 + 32;
 
   const celsius = scale === 'f' ? toCelsius(parseFloat(temperature) || 0) : parseFloat(temperature) || 0;
   const fahrenheit = scale === 'c' ? toFahrenheit(parseFloat(temperature) || 0) : parseFloat(temperature) || 0;

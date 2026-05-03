@@ -4,15 +4,15 @@ import { useState } from 'react';
 
 export default function ControlledUncontrolledPage() {
   const [controlledValue, setControlledValue] = useState('');
-  const [uncontrolledValue, setUncontrolledValue] = useState('');
+  const [uncontrolledValue, setUncontrolledValue] = useState<any | null>(null);
 
-  const handleControlledChange = (e) => {
+  const handleControlledChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setControlledValue(e.target.value);
   };
 
   const handleUncontrolledSubmit = () => {
     const input = document.getElementById('uncontrolled-input');
-    setUncontrolledValue(input.value);
+    setUncontrolledValue(input ? (input as HTMLInputElement).value : null);
   };
 
   return (

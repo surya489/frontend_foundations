@@ -1,10 +1,33 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
+type PortalSize = 'small' | 'medium' | 'large';
+
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
+interface TooltipProps {
+  text: string;
+  children: ReactNode;
+}
+
+interface DropdownProps {
+  trigger: ReactNode;
+  children: ReactNode;
+}
+
+interface Position {
+  x: number;
+  y: number;
+}
+
 // Modal component using Portal
-function Modal({ isOpen, onClose, children }) {
+function Modal({ isOpen, onClose, children }: ModalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -33,9 +56,9 @@ function Modal({ isOpen, onClose, children }) {
 }
 
 // Tooltip component using Portal
-function Tooltip({ text, children }) {
+function Tooltip({ text, children }: TooltipProps) {
   const [visible, setVisible] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -43,8 +66,8 @@ function Tooltip({ text, children }) {
     return () => setMounted(false);
   }, []);
 
-  const handleMouseEnter = (e) => {
-    const rect = e.target.getBoundingClientRect();
+  const handleMouseEnter = (e: MouseEvent<HTMLSpanElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
     setPosition({
       x: rect.left + rect.width / 2,
       y: rect.top - 10
@@ -56,7 +79,7 @@ function Tooltip({ text, children }) {
     setVisible(false);
   };
 
-  if (!mounted) return children;
+  if (!mounted) return <>{children}</>;
 
   const tooltipRoot = document.getElementById('tooltip-root') || document.body;
 
@@ -88,9 +111,9 @@ function Tooltip({ text, children }) {
 }
 
 // Dropdown component using Portal
-function Dropdown({ trigger, children }) {
+function Dropdown({ trigger, children }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -98,8 +121,8 @@ function Dropdown({ trigger, children }) {
     return () => setMounted(false);
   }, []);
 
-  const handleClick = (e) => {
-    const rect = e.target.getBoundingClientRect();
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
     setPosition({
       x: rect.left,
       y: rect.bottom
@@ -115,7 +138,7 @@ function Dropdown({ trigger, children }) {
     }
   }, [isOpen]);
 
-  if (!mounted) return trigger;
+  if (!mounted) return <>{trigger}</>;
 
   const dropdownRoot = document.getElementById('dropdown-root') || document.body;
 

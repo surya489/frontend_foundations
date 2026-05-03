@@ -1,9 +1,24 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
+
+type Theme = 'light' | 'dark';
 
 // Context for theme
-const ThemeContext = createContext();
+const ThemeContext = createContext<Theme>('light');
+
+interface WithoutContextProps {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+interface DeepComponentWithPropsProps {
+  theme: Theme;
+}
+
+interface WithContextProps {
+  toggleTheme: () => void;
+}
 
 // Component that uses theme (deep in the tree)
 function DeepComponent() {
@@ -16,7 +31,7 @@ function DeepComponent() {
 }
 
 // Without Context - prop drilling
-function WithoutContext({ theme, toggleTheme }) {
+function WithoutContext({ theme, toggleTheme }: WithoutContextProps) {
   return (
     <div className="space-y-4">
       <button
@@ -30,16 +45,16 @@ function WithoutContext({ theme, toggleTheme }) {
   );
 }
 
-function MiddleComponent({ theme, toggleTheme }) {
+function MiddleComponent({ theme, toggleTheme }: WithoutContextProps) {
   return (
     <div>
       <p>Middle Component</p>
-      <DeepComponentWithProps theme={theme} toggleTheme={toggleTheme} />
+      <DeepComponentWithProps theme={theme} />
     </div>
   );
 }
 
-function DeepComponentWithProps({ theme }) {
+function DeepComponentWithProps({ theme }: DeepComponentWithPropsProps) {
   return (
     <div className={`p-4 rounded ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-100'}`}>
       Deep Component (Props) - Theme: {theme}
@@ -48,7 +63,7 @@ function DeepComponentWithProps({ theme }) {
 }
 
 // With Context
-function WithContext({ toggleTheme }) {
+function WithContext({ toggleTheme }: WithContextProps) {
   return (
     <div className="space-y-4">
       <button
@@ -57,9 +72,7 @@ function WithContext({ toggleTheme }) {
       >
         Toggle Theme (With Context)
       </button>
-      <ThemeContext.Provider value={useContext(ThemeContext)}>
-        <MiddleComponentContext />
-      </ThemeContext.Provider>
+      <MiddleComponentContext />
     </div>
   );
 }
@@ -74,10 +87,10 @@ function MiddleComponentContext() {
 }
 
 export default function PropDrillingPage() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState<Theme>('light');
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   return (

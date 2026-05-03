@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 // Custom debounce hook
-function useDebounce(value, delay) {
+function useDebounce(value: any, delay: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function useDebounce(value, delay) {
 // Debounced search component
 function DebouncedSearch() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<string[]>([]);
   const [isSearching, setIsSearching] = useState(false);
 
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
@@ -39,7 +39,7 @@ function DebouncedSearch() {
         ].filter(item =>
           item.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
         );
-        setResults(mockResults);
+        setResults(mockResults as string[]);
         setIsSearching(false);
       };
       searchResults();
@@ -86,10 +86,10 @@ function DebouncedSearch() {
 }
 
 // Custom hook for debounced callback
-function useDebouncedCallback(callback, delay) {
-  const [debounceTimer, setDebounceTimer] = useState(null);
+function useDebouncedCallback(callback: (...args: any[]) => void, delay: number) {
+  const [debounceTimer, setDebounceTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
 
-  const debouncedCallback = useCallback((...args) => {
+  const debouncedCallback = useCallback((...args: any[]) => {
     if (debounceTimer) {
       clearTimeout(debounceTimer);
     }
@@ -117,7 +117,7 @@ function AutoSaveEditor() {
   const [content, setContent] = useState('');
   const [saveStatus, setSaveStatus] = useState('idle');
 
-  const saveContent = useDebouncedCallback(async (text) => {
+  const saveContent = useDebouncedCallback(async (text: string) => {
     setSaveStatus('saving');
     try {
       // Simulate save API call
@@ -129,7 +129,7 @@ function AutoSaveEditor() {
     }
   }, 1000);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newContent = e.target.value;
     setContent(newContent);
     saveContent(newContent);

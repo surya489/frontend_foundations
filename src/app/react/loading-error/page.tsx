@@ -1,10 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
+
+type SpinnerSize = 'small' | 'medium' | 'large';
+
+type LoadingState = 'idle' | 'loading' | 'success' | 'error';
+
+interface LoadingSpinnerProps {
+  size?: SpinnerSize;
+}
+
+interface ErrorMessageProps {
+  message: string;
+  onRetry?: () => void;
+}
+
+interface SuccessMessageProps {
+  message: string;
+}
+
+interface DataState {
+  message: string;
+  items: string[];
+}
 
 // Loading spinner component
-function LoadingSpinner({ size = 'medium' }) {
-  const sizeClasses = {
+function LoadingSpinner({ size = 'medium' }: LoadingSpinnerProps) {
+  const sizeClasses: Record<SpinnerSize, string> = {
     small: 'w-4 h-4',
     medium: 'w-8 h-8',
     large: 'w-12 h-12'
@@ -27,7 +49,7 @@ function SkeletonLoader() {
 }
 
 // Error message component
-function ErrorMessage({ message, onRetry }) {
+function ErrorMessage({ message, onRetry }: ErrorMessageProps) {
   return (
     <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
       <div className="flex items-center">
@@ -54,7 +76,7 @@ function ErrorMessage({ message, onRetry }) {
 }
 
 // Success message component
-function SuccessMessage({ message }) {
+function SuccessMessage({ message }: SuccessMessageProps) {
   return (
     <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
       <div className="flex items-center">
@@ -74,15 +96,15 @@ function SuccessMessage({ message }) {
 
 // Demo component showing different states
 function StateDemo() {
-  const [state, setState] = useState('idle'); // idle, loading, success, error
-  const [data, setData] = useState(null);
+  const [state, setState] = useState<LoadingState>('idle');
+  const [data, setData] = useState<DataState | null>(null);
 
   const simulateApiCall = async (shouldFail = false) => {
     setState('loading');
     setData(null);
 
     try {
-      await new Promise((resolve, reject) => {
+      const result = await new Promise<DataState>((resolve, reject) => {
         setTimeout(() => {
           if (shouldFail) {
             reject(new Error('Failed to load data'));
@@ -95,11 +117,31 @@ function StateDemo() {
         }, 2000);
       });
 
-      setData({ message: 'Data loaded successfully!', items: ['Item 1', 'Item 2', 'Item 3'] });
+      setData(result);
       setState('success');
     } catch (error) {
       setState('error');
     }
+  };
+
+  const renderSuccessContent = () => {
+    if (!data) {
+      return null;
+    }
+
+    return (
+      <div className="space-y-4">
+        <SuccessMessage message={data.message} />
+        <div className="border rounded p-4">
+          <h4 className="font-medium mb-2">Loaded Data:</h4>
+          <ul className="list-disc ml-6">
+            {data.items.map((item: string, index: number) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
   };
 
   const renderContent = () => {
@@ -118,19 +160,7 @@ function StateDemo() {
         );
 
       case 'success':
-        return (
-          <div className="space-y-4">
-            <SuccessMessage message={data.message} />
-            <div className="border rounded p-4">
-              <h4 className="font-medium mb-2">Loaded Data:</h4>
-              <ul className="list-disc ml-6">
-                {data.items.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        );
+        return renderSuccessContent();
 
       case 'error':
         return (
