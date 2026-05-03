@@ -75,7 +75,7 @@ export default function EventEmitterPage() {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Event Emitters follow the publish-subscribe pattern. They allow decoupled
           communication where one part emits events and others listen and react.

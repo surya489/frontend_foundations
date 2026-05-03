@@ -1,18 +1,13 @@
+import PageShell from "@/components/ui/PageShell";
 import VariableDiagram from "@/components/js/VariableDiagram";
 import VariableDemo from "@/components/js/VariableDemo";
 
 export default function VariablesPage() {
   return (
-    <main className="space-y-10">
-      <h1 className="text-3xl font-bold">Variables & Data Types</h1>
-
-      <section>
-        <h2 className="text-xl font-semibold">What is a Variable?</h2>
-        <p className="text-gray-600 mt-2">
-          A variable is a container used to store data in JavaScript.
-          It allows you to store and reuse values.
-        </p>
-      </section>
+    <PageShell
+      title="Variables & Data Types"
+      description="Understand JavaScript variable declaration, data types, and modern best practices."
+    >
 
       <section>
         <h2 className="text-xl font-semibold">Declaration</h2>
@@ -63,6 +58,6 @@ const c = 30;`}
           const cannot be reassigned, making it safer for immutable values.
         </p>
       </section>
-    </main>
+    </PageShell>
   );
 }

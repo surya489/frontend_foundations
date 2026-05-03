@@ -12,7 +12,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-black/5 bg-white/85 px-4 py-4 backdrop-blur md:px-6">
+    <nav className="sticky top-0 z-100 border-b border-black/5 bg-white/85 px-4 py-4 backdrop-blur md:px-6">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-sm font-semibold text-white shadow-[0_10px_30px_rgba(0,0,0,0.16)]">

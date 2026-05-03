@@ -140,7 +140,7 @@ function createUser(data: Omit<User, "id">) {}`}
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
         <h2 className="text-lg font-semibold">
-          Interview Explanation
+          Explanation
         </h2>
         <p className="text-gray-600 text-sm mt-2">
           Utility types like Partial, Pick, and Omit allow transforming existing

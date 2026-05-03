@@ -152,7 +152,7 @@ function combine(a: any, b: any) {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           TypeScript functions enforce type safety for parameters and return values.
           Features like optional parameters, overloads, and callbacks improve flexibility

@@ -55,7 +55,7 @@ export default function Sidebar({ items }: { items: SidebarData }) {
           "md:translate-x-0 md:static md:h-[calc(100vh-80px)] md:sticky md:top-[80px]"
         )}
       >
-        <div className="space-y-6 mt-10 md:mt-0">
+        <div className="space-y-6">
           {isGrouped(items) ? (
             items.map((group) => (
               <div key={group.group}>

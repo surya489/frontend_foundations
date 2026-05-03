@@ -253,7 +253,7 @@ function TodoItem({ todo, onToggle }) {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Keys are special props that help React identify which items in a list have changed. They must be unique
           among siblings and stable across renders. Use database IDs or unique identifiers from your data. Never

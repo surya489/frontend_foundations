@@ -92,7 +92,7 @@ ate → aet`}
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           This problem tests hashing and pattern recognition. By using sorted strings as keys,
           we can group anagrams efficiently.

@@ -220,7 +220,7 @@ return (
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           React events are synthetic events that wrap native browser events for consistency across browsers.
           Event handlers are camelCase (onClick vs onclick) and receive a SyntheticEvent object. Always prevent

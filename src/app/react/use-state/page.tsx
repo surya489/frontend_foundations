@@ -1,8 +1,12 @@
+import PageShell from "@/components/ui/PageShell";
 import UseStateDemo from '@/components/react/UseStateDemo';
 
 export default function UseStatePage() {
   return (
-    <main className="space-y-10">
+    <PageShell
+      title="useState Hook"
+      description="Learn how to use the React useState hook for state management in functional components."
+    >
       <h1 className="text-3xl font-bold">useState Hook</h1>
 
       {/* WHAT */}
@@ -172,7 +176,7 @@ setTimeout(() => {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           useState is React's primary way to add state to functional components. It returns a stateful value
           and a function to update it. State updates trigger re-renders, and React batches multiple updates
@@ -180,6 +184,6 @@ setTimeout(() => {
           on the previous state to avoid stale closure issues.
         </p>
       </section>
-    </main>
+    </PageShell>
   );
 }

@@ -138,7 +138,7 @@ let user: User = {
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
         <h2 className="text-lg font-semibold">
-          Interview Explanation
+          Explanation
         </h2>
         <p className="text-gray-600 text-sm mt-2">
           TypeScript allows strict typing of objects and arrays, ensuring data consistency.

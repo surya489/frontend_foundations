@@ -151,32 +151,145 @@ export const sidebarConfig = {
   ],
   nextjs: [
     {
-      group: "Basics",
+      group: "Fundamentals",
       items: [
-        { title: "What is Next.js", href: "/nextjs/what-is-nextjs" },
-        { title: "File-based Routing", href: "/nextjs/routing" },
-        { title: "App Router", href: "/nextjs/app-router" },
+        { title: "What is Next.js", href: "/next/what-is-next" },
+        { title: "Project Structure (App Router)", href: "/next/project-structure" },
+        { title: "Pages vs App Router", href: "/next/pages-vs-app-router" },
+        { title: "Routing Basics", href: "/next/routing" },
+        { title: "Layouts", href: "/next/layouts" },
+        { title: "Templates", href: "/next/templates" },
       ],
     },
+
+    {
+      group: "Routing Deep Dive",
+      items: [
+        { title: "Dynamic Routes", href: "/next/dynamic-routes" },
+        { title: "Nested Routes", href: "/next/nested-routes" },
+        { title: "Route Groups", href: "/next/route-groups" },
+        { title: "Parallel Routes", href: "/next/parallel-routes" },
+        { title: "Intercepting Routes", href: "/next/intercepting-routes" },
+        { title: "Loading UI & Error UI", href: "/next/loading-error-ui" },
+        { title: "Not Found Page", href: "/next/not-found" },
+      ],
+    },
+
     {
       group: "Rendering",
       items: [
-        { title: "Server vs Client Components", href: "/nextjs/server-client" },
-        { title: "SSR vs CSR vs SSG", href: "/nextjs/rendering-types" },
+        { title: "SSR (Server-Side Rendering)", href: "/next/ssr" },
+        { title: "SSG (Static Site Generation)", href: "/next/ssg" },
+        { title: "ISR (Incremental Static Regeneration)", href: "/next/isr" },
+        { title: "CSR in Next.js", href: "/next/csr" },
+        { title: "Streaming & Suspense", href: "/next/streaming" },
       ],
     },
+
     {
       group: "Data Fetching",
       items: [
-        { title: "Fetching Data", href: "/nextjs/data-fetching" },
-        { title: "Loading & Error Handling", href: "/nextjs/loading-error" },
+        { title: "Fetching Data (Server Components)", href: "/next/data-fetching-server" },
+        { title: "Fetching Data (Client Components)", href: "/next/data-fetching-client" },
+        { title: "Caching & Revalidation", href: "/next/caching" },
+        { title: "Revalidate Tag & Path", href: "/next/revalidate" },
       ],
     },
+
     {
-      group: "Backend",
+      group: "Server vs Client",
       items: [
-        { title: "API Routes", href: "/nextjs/api-routes" },
-        { title: "Middleware", href: "/nextjs/middleware" },
+        { title: "Server Components", href: "/next/server-components" },
+        { title: "Client Components ('use client')", href: "/next/client-components" },
+        { title: "When to Use What", href: "/next/server-vs-client" },
+      ],
+    },
+
+    {
+      group: "Navigation",
+      items: [
+        { title: "Link Component", href: "/next/link" },
+        { title: "useRouter", href: "/next/use-router" },
+        { title: "Redirects", href: "/next/redirects" },
+        { title: "Navigation Patterns", href: "/next/navigation-patterns" },
+      ],
+    },
+
+    {
+      group: "API & Backend",
+      items: [
+        { title: "Route Handlers (API Routes)", href: "/next/api-routes" },
+        { title: "HTTP Methods (GET, POST, etc.)", href: "/next/http-methods" },
+        { title: "Middleware", href: "/next/middleware" },
+        { title: "Server Actions", href: "/next/server-actions" },
+      ],
+    },
+
+    {
+      group: "Authentication & Security",
+      items: [
+        { title: "Authentication Basics", href: "/next/auth-basics" },
+        { title: "NextAuth Integration", href: "/next/next-auth" },
+        { title: "Protected Routes", href: "/next/protected-routes" },
+        { title: "Cookies & Sessions", href: "/next/cookies" },
+      ],
+    },
+
+    {
+      group: "Styling",
+      items: [
+        { title: "CSS Modules", href: "/next/css-modules" },
+        { title: "Global Styles", href: "/next/global-styles" },
+        { title: "Tailwind Setup", href: "/next/tailwind" },
+        { title: "CSS-in-JS", href: "/next/css-in-js" },
+      ],
+    },
+
+    {
+      group: "Assets & Optimization",
+      items: [
+        { title: "Image Optimization", href: "/next/image" },
+        { title: "Font Optimization", href: "/next/fonts" },
+        { title: "Script Optimization", href: "/next/scripts" },
+        { title: "Metadata & SEO", href: "/next/seo" },
+      ],
+    },
+
+    {
+      group: "Performance",
+      items: [
+        { title: "Code Splitting", href: "/next/code-splitting" },
+        { title: "Lazy Loading", href: "/next/lazy-loading" },
+        { title: "Caching Strategies", href: "/next/caching-strategies" },
+      ],
+    },
+
+    {
+      group: "Advanced Concepts",
+      items: [
+        { title: "Edge Runtime", href: "/next/edge-runtime" },
+        { title: "Streaming SSR", href: "/next/streaming-ssr" },
+        { title: "Internationalization (i18n)", href: "/next/i18n" },
+        { title: "Environment Variables", href: "/next/env" },
+      ],
+    },
+
+    {
+      group: "Deployment",
+      items: [
+        { title: "Build & Production", href: "/next/build" },
+        { title: "Deployment (Vercel)", href: "/next/vercel" },
+        { title: "Self Hosting", href: "/next/self-hosting" },
+      ],
+    },
+
+    {
+      group: "Real World",
+      items: [
+        { title: "Fullstack App Flow", href: "/next/fullstack-flow" },
+        { title: "Form Handling with Server Actions", href: "/next/forms-server-actions" },
+        { title: "Pagination", href: "/next/pagination" },
+        { title: "Search & Filters", href: "/next/search-filter" },
       ],
     },
   ],

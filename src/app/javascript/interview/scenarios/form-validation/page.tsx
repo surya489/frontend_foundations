@@ -63,7 +63,7 @@ if (password < 6) → error`}
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Form validation ensures data correctness before submission.
           It improves user experience and prevents invalid data from reaching the backend.

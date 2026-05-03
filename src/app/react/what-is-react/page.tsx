@@ -188,7 +188,7 @@ document.getElementById("btn").addEventListener("click", () => {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           React is a JavaScript library for building component-based user interfaces.
           It uses a Virtual DOM to efficiently update the UI and promotes reusable,

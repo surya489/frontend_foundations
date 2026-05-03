@@ -1,21 +1,16 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+import PageShell from "@/components/ui/PageShell";
 import { sidebarConfig } from "@/lib/sidebarConfig";
 
 const sidebarItems = sidebarConfig.typescript;
 
 export default function TypeScriptHome() {
   return (
-    <main className="space-y-10">
-      {/* HERO */}
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold">TypeScript</h1>
-        <p className="text-gray-600 max-w-2xl">
-          Learn TypeScript from basics to advanced concepts with real-world
-          examples and React integration.
-        </p>
-      </section>
+    <PageShell
+      title="TypeScript"
+      description="Learn TypeScript from basics to advanced concepts with real-world examples and React integration."
+    >
 
-      {/* SECTIONS */}
       <div className="grid md:grid-cols-2 gap-6">
         {sidebarItems.map((section) => (
           <div
@@ -39,22 +34,16 @@ export default function TypeScriptHome() {
         ))}
       </div>
 
-      {/* CTA */}
       <section className="border rounded-xl p-6 text-center">
-        <h2 className="text-lg font-semibold mb-2">
-          Ready for TypeScript Interviews?
-        </h2>
+        <h2 className="text-lg font-semibold mb-2">Ready for Interview Preparation?</h2>
         <p className="text-gray-600 text-sm mb-4">
-          Practice real-world TypeScript scenarios and questions.
+          Practice real coding problems and scenarios.
         </p>
 
-        <Link
-          href="/typescript/interview"
-          className="px-4 py-2 bg-black text-white rounded"
-        >
+        <Link href="/interview" className="px-4 py-2 bg-black text-white rounded">
           Start Practice
         </Link>
       </section>
-    </main>
+    </PageShell>
   );
 }

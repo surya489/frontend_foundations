@@ -74,7 +74,7 @@ const copy = deepClone(obj);`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Deep cloning ensures complete independence between objects. Recursive cloning
           is the most flexible solution, while JSON methods are quick but limited.

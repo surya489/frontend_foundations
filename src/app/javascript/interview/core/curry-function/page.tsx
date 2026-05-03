@@ -78,7 +78,7 @@ sum(1)(2)(3)`}
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Currying transforms a function into a chain of functions that each take one argument.
           It relies on closures and is useful for creating reusable and composable functions.

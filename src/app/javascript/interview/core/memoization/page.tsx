@@ -73,7 +73,7 @@ square(5) → reuse cached result`}
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Memoization improves performance by caching results of function calls.
           It avoids redundant computations and is commonly used in optimization problems.

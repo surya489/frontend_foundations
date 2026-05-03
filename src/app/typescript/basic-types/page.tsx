@@ -1,6 +1,11 @@
+import PageShell from "@/components/ui/PageShell";
+
 export default function BasicTypesPage() {
   return (
-    <main className="space-y-10">
+    <PageShell
+      title="Basic Types in TypeScript"
+      description="Learn how TypeScript basic types work, and compare JavaScript and TypeScript type examples."
+    >
       <h1 className="text-3xl font-bold">Basic Types in TypeScript</h1>
 
       {/* WHAT */}
@@ -137,11 +142,11 @@ if (typeof value === "string") {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Basic types in TypeScript define the shape of data. They help catch errors at compile time and make code more maintainable.
         </p>
       </section>
-    </main>
+    </PageShell>
   );
 }

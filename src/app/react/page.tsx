@@ -1,19 +1,15 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+import PageShell from "@/components/ui/PageShell";
 import { sidebarConfig } from "@/lib/sidebarConfig";
 
 const sidebarItems = sidebarConfig.react;
 
 export default function ReactHome() {
   return (
-    <main className="space-y-10">
-        
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold">React</h1>
-        <p className="text-gray-600 max-w-2xl">
-          Learn React from basics to advanced concepts including hooks,
-          rendering behavior, and performance optimization.
-        </p>
-      </section>
+    <PageShell
+      title="React"
+      description="Learn React from basics to advanced concepts including hooks, rendering behavior, and performance optimization."
+    >
 
       <div className="grid md:grid-cols-2 gap-6">
         {sidebarItems.map((section) => (
@@ -39,20 +35,15 @@ export default function ReactHome() {
       </div>
 
       <section className="border rounded-xl p-6 text-center">
-        <h2 className="text-lg font-semibold mb-2">
-          Ready to Build Real Projects?
-        </h2>
+        <h2 className="text-lg font-semibold mb-2">Ready for Interview Preparation?</h2>
         <p className="text-gray-600 text-sm mb-4">
-          Apply React concepts with real-world examples.
+          Practice real coding problems and scenarios.
         </p>
 
-        <Link
-          href="/react/projects"
-          className="px-4 py-2 bg-black text-white rounded"
-        >
-          Start Building
+        <Link href="/interview" className="px-4 py-2 bg-black text-white rounded">
+          Start Practice
         </Link>
       </section>
-    </main>
+    </PageShell>
   );
 }

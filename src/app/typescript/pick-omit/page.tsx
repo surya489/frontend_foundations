@@ -145,7 +145,7 @@ type LoginInput = Pick<User, "email" | "password">;`}
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
         <h2 className="text-lg font-semibold">
-          Interview Explanation
+          Explanation
         </h2>
         <p className="text-gray-600 text-sm mt-2">
           Pick selects specific properties, while Omit removes properties from a type.

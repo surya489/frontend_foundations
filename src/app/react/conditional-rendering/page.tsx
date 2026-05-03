@@ -252,7 +252,7 @@ export default function ConditionalRenderingPage() {
 
       {/* INTERVIEW */}
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Conditional rendering in React uses JavaScript conditional statements within JSX. Use ternary operators
           for simple if-else, && for conditional rendering, and early returns to avoid complex nesting. Always

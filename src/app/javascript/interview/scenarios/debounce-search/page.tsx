@@ -72,7 +72,7 @@ function debounce(fn, delay) {
       </section>
 
       <section className="border-l-4 border-black pl-4">
-        <h2 className="text-lg font-semibold">Interview Explanation</h2>
+        <h2 className="text-lg font-semibold">Explanation</h2>
         <p className="text-gray-600 text-sm mt-2">
           Debounce delays function execution until after a certain time.
           It is used to optimize performance by reducing unnecessary function calls.
